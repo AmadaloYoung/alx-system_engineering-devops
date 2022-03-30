@@ -1,2 +1,2 @@
 #!/bin/bash
-echo ls –l $dir|egrep ‘^d’
+echo $ls
