@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
-#Displayd Best School 10 times and Hi on the 9th line
+#display best school ten times and hi at the end
 
-i=0
+count=0
 
-while [ $i -lt 10 ]
+while [ $count -lt 10 ]
 do
-	if [ $i -eq 9 ]
+	if [ $count -eq 9 ]
 	then
 		echo "Hi"
 	fi
 	echo "Best School"
-	((i++))
+	((count++))
+done

@@ -1,23 +1,23 @@
 #!/usr/bin/python3
-""" Script to get TODO list of
-    all employees and save them
-    to a file in JSON fomat
-"""
+'''Script to get TODO list of
+all employees and save them
+to a file in JSON format
+'''
 from json import dump
 from requests import get
 from sys import argv
 
 
 def to_do_list(emp_id, user):
-    """ Send request for employee's
-        todo list to API
+    """ send request for employee's
+    todo list to API
     """
     url_todo = 'https://jsonplaceholder.typicode.com/todos/'
     params = {'userId': emp_id}
     tasks = get(url_todo, params=params).json()
 
-    #  create list of dictionaries
-    #  with info about each task
+    # create list of dictionaries
+    # with info about each task
     task_list = []
     for task in tasks:
         task_list.append({"username": user,
@@ -27,9 +27,9 @@ def to_do_list(emp_id, user):
 
 
 def get_employees_to_do_lists():
-    """ Send request for all employees
-        and their to do list then saves
-        them in JSON format
+    """sends request for all employee
+    and their to do list then saves
+    them in JSON format
     """
     url = 'https://jsonplaceholder.typicode.com/users/'
     file_name = 'todo_all_employees.json'

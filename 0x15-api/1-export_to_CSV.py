@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 '''Returns information about an employee's TODO list progress
-    and save it to CSV file
+and saves it to  CSV file
 '''
 from csv import writer, QUOTE_ALL
 from requests import get
@@ -8,8 +8,7 @@ from sys import argv
 
 
 def todo_csv(emp_id):
-    """ Send request for employee's
-        to do list to API
+    """send request for employee's to do list
     """
     file_name = '{}.csv'.format(emp_id)
     url_user = 'https://jsonplaceholder.typicode.com/users/'
@@ -20,11 +19,11 @@ def todo_csv(emp_id):
 
     if user:
         params = {'userId': emp_id}
-        #  get all tasks
+        # get all tasks
         tasks = get(url_todo, params=params).json()
         if tasks:
-            #  open file in write mode and use csv writer to
-            #  writer content
+            # open file write mode and use csv writer to
+            # write content
             with open(file_name, 'w', newline='', encoding='utf8') as f:
                 task_writer = writer(f, quoting=QUOTE_ALL)
                 for task in tasks:

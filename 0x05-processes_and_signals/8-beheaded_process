@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-# stops/kills "7-highlander" process
+#Bash script that kills the previous process
 
-pkill -f "highlander" --signal SIGKILL
+kill -9 "$(pgrep -f 7-highlander)"

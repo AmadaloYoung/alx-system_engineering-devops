@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 '''Returns information about an employee's TODO list progress
-    and save it to in JSON fomat
+and save it in JSON format
 '''
 from json import dump
 from requests import get
@@ -8,8 +8,7 @@ from sys import argv
 
 
 def todo_json(emp_id):
-    """ Send request for employee's
-        todo list to API
+    """send request or employee's todo list to API
     """
     file_name = '{}.json'.format(emp_id)
     url_user = 'https://jsonplaceholder.typicode.com/users/'
@@ -20,20 +19,20 @@ def todo_json(emp_id):
 
     if user:
         params = {'userId': emp_id}
-        #  get all tasks
+        # get all tasks
         tasks = get(url_todo, params=params).json()
 
-        #  create list of dictionaries
-        #  with info about each task
+        # create list of dictionaries
+        # with information  about each other
         task_list = []
         for task in tasks:
             task_list.append({"task": task.get('title'),
                               "completed": task.get('completed'),
                               "username": user})
 
-        #  open file in write mode and jsonify
-        with open(file_name, 'w', encoding='utf8') as f:
-            dump({emp_id: task_list}, f)
+            # open file in write mode and jsonify
+            with open(file_name, 'w', encoding='utf8') as f:
+                dump({emp_id: task_list}, f)
 
 
 if __name__ == '__main__':

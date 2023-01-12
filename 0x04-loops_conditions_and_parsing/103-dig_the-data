@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
-# display the number of times a specific IP and HTTP code is found in the apache log access file
+#write a bash script that groups visitiors by IP
 
+
+awk '{ print $1,$9 }' apache-access.log | sort | uniq -c | sort -rn
